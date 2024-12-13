@@ -1,0 +1,14 @@
+name: "Setup UV Environment"
+description: "Sets up UV environment for Python projects using UV"
+runs:
+  using: composite
+  steps:
+    - name: "Install UV"
+      shell: bash
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    - name: "Sync project dependencies with UV"
+      shell: bash
+      run: |
+        uv sync --all-extras --dev
