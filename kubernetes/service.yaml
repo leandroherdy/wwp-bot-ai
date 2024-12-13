@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-service
+  labels:
+    app: fastapi-app
+    environment: development
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80        # Porta exposta pelo LoadBalancer
+      targetPort: 8000 # Porta do container
+      protocol: TCP
+  selector:
+    app: fastapi-app
