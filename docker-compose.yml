@@ -1,3 +1,7 @@
+networks:
+  app-network:
+    driver: bridge
+
 services:
   fastapi-app:
     build:
@@ -5,3 +9,5 @@ services:
     ports:
       - "8000:8000"
     container_name: fastapi-app
+    networks:
+      - app-network
